@@ -1,6 +1,12 @@
-cli
-===
+cli with go
+============
 
-Dummy project to compare different programming languages for CLI project.
+### cli-init
 
-An attempt to find answer for http://www.quora.com/Programming-Language-Comparisons-Which-is-better-for-command-line-project
+To bootstrap, we used https://github.com/tcnksm/cli-init
+
+Faced some issues with `$GOPATH` - http://golang.org/doc/code.html#GOPATH
+
+After that https://github.com/tcnksm/cli-init#installation worked.
+
+cli-init -s site,stack,debug,clean,secure,uodate,info [application]
