@@ -5,6 +5,9 @@ Dummy project to compare different programming languages for CLI project.
 
 An attempt to find answer for http://www.quora.com/Programming-Language-Comparisons-Which-is-better-for-command-line-project
 
+This may sounds like! ;-)
+
+![http://imgs.xkcd.com/comics/efficiency.png](http://imgs.xkcd.com/comics/efficiency.png)
 
 Dummy Commands
 ----------------
