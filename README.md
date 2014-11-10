@@ -9,7 +9,7 @@ This may sounds like! ;-)
 
 ![efficiency on xkcd](http://imgs.xkcd.com/comics/efficiency.png)
 
-_(source http://xkcd.com/1445/)
+_(source http://xkcd.com/1445/)_
 
 Dummy Commands
 ----------------
