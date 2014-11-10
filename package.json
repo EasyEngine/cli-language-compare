@@ -1,0 +1,22 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "nodejs commander example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rtCamp/cli.git "
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rtCamp/cli.git /issues"
+  },
+  "homepage": "https://github.com/rtCamp/cli.git ",
+  "dependencies": {
+    "commander": "^2.5.0"
+  }
+}
