@@ -14,8 +14,11 @@ if (!pkgs.length) {
 }
 
 console.log();
+
 if (program.force) console.log('  force: install');
+
 pkgs.forEach(function(pkg){
   console.log('  install : %s', pkg);
 });
+
 console.log();
