@@ -7,7 +7,9 @@ An attempt to find answer for http://www.quora.com/Programming-Language-Comparis
 
 This may sounds like! ;-)
 
-![http://imgs.xkcd.com/comics/efficiency.png](http://imgs.xkcd.com/comics/efficiency.png)
+![efficiency on xkcd](http://imgs.xkcd.com/comics/efficiency.png)
+
+_(source http://xkcd.com/1445/)
 
 Dummy Commands
 ----------------
