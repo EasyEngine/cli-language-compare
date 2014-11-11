@@ -1,51 +1,18 @@
-cli
-===
+# How to use
+```bash
+./ee --help
 
-Dummy project to compare different programming languages for CLI project.
+  Usage: ee [options] [command]
 
-An attempt to find answer for http://www.quora.com/Programming-Language-Comparisons-Which-is-better-for-command-line-project
+  Commands:
 
+    site        perform site related activities
+    stack       perform stack related activities
+    list        list packages installed
+    help [cmd]  display help for [cmd]
 
-Dummy Commands
-----------------
+  Options:
 
-### Top Commands
-
-````
-ee site
-ee stack
-ee debug
-ee info
-ee secure
-ee clean
-````
-
-### Subcommands
-
-````
-ee site create
-ee site delete
-ee site update
-ee site enable
-ee site disable
-ee site list
-
-ee stack install
-ee stack purge
-ee stack remove
-````
-
-### Arguments
-
-````
-ee site create example.com
-ee stack install web
-````
-
-## Options
-
-````
-ww site create --wp example.com
-ee site create example.com --wpsubdom --w3tc
-ee site create example.com --wpsubdom --wpsc
-````
+    -h, --help     output usage information
+    -V, --version  output the version number
+```
