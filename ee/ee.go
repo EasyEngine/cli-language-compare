@@ -9,7 +9,14 @@ func main() {
 app := cli.NewApp()
 app.Name = "say"
 app.Commands = []cli.Command{
-    {
+   site_commands,
+   stack_commands,
+}
+
+app.Run(os.Args)
+}
+
+var site_commands = cli.Command{
         Name:        "site",
         Usage:       "Site create/delete/update",
         Description: "Site create/delete/update",
@@ -45,62 +52,161 @@ app.Commands = []cli.Command{
                     },
                 },
                 Action: func(c *cli.Context) {
-                    if c.Bool("html") {
+                  args := c.Args()
+                  if args.Present() {
+                       if c.Bool("html") {
                         println("Hello, html site", c.Args().First())
+                        }
+                        if c.Bool("php") {
+                            println("Hello, php site", c.Args().First())
+                        }
+                        if c.Bool("mysql") {
+                            println("Hello, mysql site", c.Args().First())
+                        }
+                        if c.Bool("wp") {
+                            println("Hello, wp site", c.Args().First())
+                        }
+                        if c.Bool("wpsubdir") {
+                            println("Hello, wpsubdir site", c.Args().First())
+                        }
+                        if c.Bool("wpsubdomain") {
+                            println("Hello, wpsubdomain site", c.Args().First())
+                        }       
+                    } else {
+                        println("Please provide site name")
                     }
-                    if c.Bool("php") {
-                        println("Hello, php site", c.Args().First())
-                    }
-                    if c.Bool("mysql") {
-                        println("Hello, mysql site", c.Args().First())
-                    }
-                    if c.Bool("wp") {
-                        println("Hello, wp site", c.Args().First())
-                    }
-                    if c.Bool("wpsubdir") {
-                        println("Hello, wpsubdir site", c.Args().First())
-                    }
-                    if c.Bool("wpsubdomain") {
-                        println("Hello, wpsubdomain site", c.Args().First())
-                    }
-                },
-            }, {
-                Name:      "stack",
-                Usage:     "sends a greeting in spanish",
-                Flags: []cli.Flag{
-                    cli.StringFlag{
-                        Name:  "surname",
-                        Value: "Jones",
-                        Usage: "Surname of the person to greet",
-                    },
-                },
-                Action: func(c *cli.Context) {
-                    println("Hola, ", c.String("surname"))
-                },
-            }, {
-                Name:      "french",
-                ShortName: "fr",
-                Usage:     "sends a greeting in french",
-                Flags: []cli.Flag{
-                    cli.StringFlag{
-                        Name:  "nickname",
-                        Value: "Stevie",
-                        Usage: "Nickname of the person to greet",
-                    },
-                },
-                Action: func(c *cli.Context) {
-                    println("Bonjour, ", c.String("nickname"))
                 },
             },
-        },
-    }, {
-        Name:  "bye",
-        Usage: "says goodbye",
-        Action: func(c *cli.Context) {
-            println("bye")
-        },
-    },
-}
+        },//Site
+    }
 
-app.Run(os.Args)
-}
+ var stack_commands = cli.Command{
+        Name:      "stack",
+        Usage:     "stack install/purge/remove web/mail/admin/mailscanner/all",
+        Subcommands: []cli.Command{
+            {
+                Name:        "install",
+                Usage:       "Install web/mail/admin/mailscanner/all packages",
+                Description: "Installs packages",
+                Flags: []cli.Flag{
+                    cli.BoolFlag{
+                        Name:  "web",
+                        Usage: "Remove web packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "mail",
+                        Usage: "Remove mail packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "admin",
+                        Usage: "Remove admin packages",
+                    },
+                   cli.BoolFlag{
+                        Name:  "mailscanner",
+                        Usage: "Remove mailscanner packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "all",
+                        Usage: "Remove all packages",
+                    },
+                },
+                Action: func(c *cli.Context) {
+                    if c.Bool("web") {
+                        println("Installed web package")
+                    }else if c.Bool("mail") {
+                        println("Installed mail packages")
+                    }else if c.Bool("admin") {
+                        println("Installed admin packages")
+                    }else if c.Bool("mailscanner") {
+                        println("Installed mailscanner packages")
+                    }else if c.Bool("all") {
+                        println("Installed all packages")
+                    }else {
+                        println("Installed web package")
+                    }
+                },
+            },{
+                Name:        "purge",
+                Usage:       "purge web/mail/admin/mailscanner/all packages",
+                Description: "Purge packages",
+                Flags: []cli.Flag{
+                    cli.BoolFlag{
+                        Name:  "web",
+                        Usage: "Remove web packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "mail",
+                        Usage: "Remove mail packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "admin",
+                        Usage: "Remove admin packages",
+                    },
+                   cli.BoolFlag{
+                        Name:  "mailscanner",
+                        Usage: "Remove mailscanner packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "all",
+                        Usage: "Remove all packages",
+                    },
+                },
+                Action: func(c *cli.Context) {
+                    if c.Bool("web") {
+                        println("Purged web package")
+                    }else if c.Bool("mail") {
+                        println("Purged mail packages")
+                    }else if c.Bool("admin") {
+                        println("Purged admin packages")
+                    }else if c.Bool("mailscanner") {
+                        println("Purged mailscanner packages")
+                    }else if c.Bool("all") {
+                        println("Purged all packages")
+                    }else {
+                        println("Purged web package")
+                    }
+                },//end of Action
+            },{
+                Name:        "remove",
+                Usage:       "remove web/mail/admin/mailscanner/all packages",
+                Description: "remove packages",
+                Flags: []cli.Flag{
+                    cli.BoolFlag{
+                        Name:  "web",
+                        Usage: "Remove web packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "mail",
+                        Usage: "Remove mail packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "admin",
+                        Usage: "Remove admin packages",
+                    },
+                   cli.BoolFlag{
+                        Name:  "mailscanner",
+                        Usage: "Remove mailscanner packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "all",
+                        Usage: "Remove all packages",
+                    },
+                },
+                Action: func(c *cli.Context) {
+                    if c.Bool("web") {
+                        println("Removed web package")
+                    }else if c.Bool("mail") {
+                        println("Removed mail packages")
+                    }else if c.Bool("admin") {
+                        println("Removed admin packages")
+                    }else if c.Bool("mailscanner") {
+                        println("Removed mailscanner packages")
+                    }else if c.Bool("all") {
+                        println("Removed all packages")
+                    }else {
+                        println("Removed web package")
+                    }
+                },//end of Action
+            },
+        },
+    }
