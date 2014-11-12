@@ -7,7 +7,7 @@ import (
 )
 func main() {
 app := cli.NewApp()
-app.Name = "say"
+app.Name = "EasyEngine Does amazing things"
 app.Commands = []cli.Command{
    site_commands,
    stack_commands,
@@ -83,12 +83,7 @@ var site_commands = cli.Command{
  var stack_commands = cli.Command{
         Name:      "stack",
         Usage:     "stack install/purge/remove web/mail/admin/mailscanner/all",
-        Subcommands: []cli.Command{
-            {
-                Name:        "install",
-                Usage:       "Install web/mail/admin/mailscanner/all packages",
-                Description: "Installs packages",
-                Flags: []cli.Flag{
+        Flags: []cli.Flag{
                     cli.BoolFlag{
                         Name:  "web",
                         Usage: "Remove web packages",
@@ -110,16 +105,23 @@ var site_commands = cli.Command{
                         Usage: "Remove all packages",
                     },
                 },
+        Subcommands: []cli.Command{
+            {
+                Name:        "install",
+                Usage:       "Install web/mail/admin/mailscanner/all packages",
+                Description: "Installs packages",
+                
                 Action: func(c *cli.Context) {
-                    if c.Bool("web") {
+                    println(c.GlobalBool("web"))
+                    if c.GlobalBool("web") {
                         println("Installed web package")
-                    }else if c.Bool("mail") {
+                    }else if c.GlobalBool("mail") {
                         println("Installed mail packages")
-                    }else if c.Bool("admin") {
+                    }else if c.GlobalBool("admin") {
                         println("Installed admin packages")
-                    }else if c.Bool("mailscanner") {
+                    }else if c.GlobalBool("mailscanner") {
                         println("Installed mailscanner packages")
-                    }else if c.Bool("all") {
+                    }else if c.GlobalBool("all") {
                         println("Installed all packages")
                     }else {
                         println("Installed web package")
