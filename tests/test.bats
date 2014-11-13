@@ -19,29 +19,28 @@
 
 @test "invoking ee stack install" {
   run ee stack install
-  [ "$status" -eq 0 ]
-  [ "$output" = "installed stack" ]
+  [ "$status" -eq 1 ]
 }
 
-@test "invoking ee stack install --nginx" {
-  run ee site create --wp example.com
+@test "invoking ee stack install --web" {
+  run ee stack install --web
   [ "$status" -eq 0 ]
-  [ "$output" = "installed stack : nginx" ]
+  [ "$output" = "Installed stack : web" ]
 }
 
-@test "invoking ee stack install --php" {
-  run ee stack install --php
+@test "invoking ee stack install --admin" {
+  run ee stack install --admin
   [ "$status" -eq 0 ]
-  [ "$output" = "installed stack : php" ]
+  [ "$output" = "Installed stack : admin" ]
 }
 
-@test "invoking ee stack install --mysql" {
-  run ee stack install --mysql
+@test "invoking ee stack install --mail" {
+  run ee stack install --mail
   [ "$status" -eq 0 ]
-  [ "$output" = "installed stack : mysql" ]
+  [ "$output" = "Installed stack : mail" ]
 }
 
-@test "invoking ee stack --nginx install" {
-  run ee stack --nginx install
+@test "invoking ee stack --web install" {
+  run ee stack --web install
   [ "$status" -eq 1 ]
 }
