@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var program = require('commander');
 
 program
@@ -9,10 +11,10 @@ program
   .option('--wpsubdomain', 'wordpress multisite with subdomain setup')
   .parse(process.argv);
 var pkgs = program.args;
-if (program.html) console.log('create site %s with --html', pkgs);
-if (program.php) console.log('create site %s with --php', pkgs);
-if (program.mysql) console.log('create site %s with --mysql', pkg);
-if (program.wp) console.log('create site %s with --wp', pkgs);
-if (program.wpsubdir) console.log('create site %s with --wpsubdir', pkgs);
-if (program.wpsubdomain) console.log('create site %s with --wpsubdomain', pkgs);
+if (program.html) console.log('site %s created with html option', pkgs);
+if (program.php) console.log('site %s with php option', pkgs);
+if (program.mysql) console.log('site %s created with mysql option', pkg);
+if (program.wp) console.log('site %s created with wp option', pkgs);
+if (program.wpsubdir) console.log('site %s createed with wpsubdir option', pkgs);
+if (program.wpsubdomain) console.log('site %s created with wpsubdomain option', pkgs);
 console.log();
