@@ -8,7 +8,7 @@
 
     site        perform site related activities
     stack       perform stack related activities
-    list        list packages installed
+    debug       debug utility
     help [cmd]  display help for [cmd]
 
   Options:
