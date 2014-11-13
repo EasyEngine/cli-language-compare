@@ -2,7 +2,6 @@
 package main
 
 import (
-  "os"
   "github.com/codegangsta/cli"
 )
 func main() {
@@ -13,8 +12,9 @@ app.Commands = []cli.Command{
    stack_commands,
 }
 
-app.Run(os.Args)
+app.RunAndExitOnError()
 }
+
 
 var site_commands = cli.Command{
         Name:        "site",
@@ -55,22 +55,22 @@ var site_commands = cli.Command{
                   args := c.Args()
                   if args.Present() {
                        if c.Bool("html") {
-                        println("Hello, html site", c.Args().First())
+                        println("site", c.Args().First(), "created with html option" )
                         }
                         if c.Bool("php") {
-                            println("Hello, php site", c.Args().First())
+                            println("site", c.Args().First(), "created with php option")
                         }
                         if c.Bool("mysql") {
-                            println("Hello, mysql site", c.Args().First())
+                            println("site", c.Args().First(), "created with mysql option")
                         }
                         if c.Bool("wp") {
-                            println("Hello, wp site", c.Args().First())
+                            println("site", c.Args().First(), "created with wp option")
                         }
                         if c.Bool("wpsubdir") {
-                            println("Hello, wpsubdir site", c.Args().First())
+                            println("site", c.Args().First(), "created with wpsubdir option")
                         }
                         if c.Bool("wpsubdomain") {
-                            println("Hello, wpsubdomain site", c.Args().First())
+                            println("site", c.Args().First(), "created with wpsubdomain option")
                         }       
                     } else {
                         println("Please provide site name")
