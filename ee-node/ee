@@ -6,7 +6,7 @@ program
   .version('0.0.1')
   .command('site', 'perform site related activities')
   .command('stack', 'perform stack related activities')
-  .command('list', 'list packages installed')
+  .command('debug', 'debug utility')
   .parse(process.argv);
 
 // here .command() is invoked with a description,
