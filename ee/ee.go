@@ -83,89 +83,86 @@ var site_commands = cli.Command{
  var stack_commands = cli.Command{
         Name:      "stack",
         Usage:     "stack install/purge/remove web/mail/admin/mailscanner/all",
-        Flags: []cli.Flag{
-                    cli.BoolFlag{
-                        Name:  "web",
-                        Usage: "Remove web packages",
-                    },
-                    cli.BoolFlag{
-                        Name:  "mail",
-                        Usage: "Remove mail packages",
-                    },
-                    cli.BoolFlag{
-                        Name:  "admin",
-                        Usage: "Remove admin packages",
-                    },
-                   cli.BoolFlag{
-                        Name:  "mailscanner",
-                        Usage: "Remove mailscanner packages",
-                    },
-                    cli.BoolFlag{
-                        Name:  "all",
-                        Usage: "Remove all packages",
-                    },
-                },
+        
         Subcommands: []cli.Command{
             {
                 Name:        "install",
                 Usage:       "Install web/mail/admin/mailscanner/all packages",
                 Description: "Installs packages",
-                
+                Flags: []cli.Flag{
+                    cli.BoolFlag{
+                        Name:  "web",
+                        Usage: "Install web packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "mail",
+                        Usage: "Install mail packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "admin",
+                        Usage: "Install admin packages",
+                    },
+                   cli.BoolFlag{
+                        Name:  "mailscanner",
+                        Usage: "Install mailscanner packages",
+                    },
+                    cli.BoolFlag{
+                        Name:  "all",
+                        Usage: "Install all packages",
+                    },
+                },
                 Action: func(c *cli.Context) {
-                    println(c.GlobalBool("web"))
-                    if c.GlobalBool("web") {
-                        println("Installed web package")
-                    }else if c.GlobalBool("mail") {
-                        println("Installed mail packages")
-                    }else if c.GlobalBool("admin") {
-                        println("Installed admin packages")
-                    }else if c.GlobalBool("mailscanner") {
-                        println("Installed mailscanner packages")
-                    }else if c.GlobalBool("all") {
-                        println("Installed all packages")
-                    }else {
-                        println("Installed web package")
+                    println(c.Bool("web"))
+                    if c.Bool("web") {
+                        println("Installed stack : web")
+                    }else if c.Bool("mail") {
+                        println("Installed stack : mail")
+                    }else if c.Bool("admin") {
+                        println("Installed stack : admin")
+                    }else if c.Bool("mailscanner") {
+                        println("Installed stack : mailscanner")
+                    }else if c.Bool("all") {
+                        println("Installed stack : all")
                     }
                 },
             },{
                 Name:        "purge",
-                Usage:       "purge web/mail/admin/mailscanner/all packages",
+                Usage:       "purge web/mail/admin/mailscanner packages",
                 Description: "Purge packages",
                 Flags: []cli.Flag{
                     cli.BoolFlag{
                         Name:  "web",
-                        Usage: "Remove web packages",
+                        Usage: "Purge web packages",
                     },
                     cli.BoolFlag{
                         Name:  "mail",
-                        Usage: "Remove mail packages",
+                        Usage: "Purge mail packages",
                     },
                     cli.BoolFlag{
                         Name:  "admin",
-                        Usage: "Remove admin packages",
+                        Usage: "Purge admin packages",
                     },
                    cli.BoolFlag{
                         Name:  "mailscanner",
-                        Usage: "Remove mailscanner packages",
+                        Usage: "Purge mailscanner packages",
                     },
                     cli.BoolFlag{
                         Name:  "all",
-                        Usage: "Remove all packages",
+                        Usage: "Purge all packages",
                     },
+                    
                 },
                 Action: func(c *cli.Context) {
                     if c.Bool("web") {
-                        println("Purged web package")
+                        println("Purged stack : web")
                     }else if c.Bool("mail") {
-                        println("Purged mail packages")
+                        println("Purged stack : mail")
                     }else if c.Bool("admin") {
-                        println("Purged admin packages")
+                        println("Purged stack : admin")
                     }else if c.Bool("mailscanner") {
-                        println("Purged mailscanner packages")
+                        println("Purged stack : mailscanner")
                     }else if c.Bool("all") {
-                        println("Purged all packages")
-                    }else {
-                        println("Purged web package")
+                        println("Purged stack : all")
                     }
                 },//end of Action
             },{
@@ -189,24 +186,22 @@ var site_commands = cli.Command{
                         Name:  "mailscanner",
                         Usage: "Remove mailscanner packages",
                     },
-                    cli.BoolFlag{
+                   cli.BoolFlag{
                         Name:  "all",
                         Usage: "Remove all packages",
                     },
                 },
                 Action: func(c *cli.Context) {
                     if c.Bool("web") {
-                        println("Removed web package")
+                        println("Removed stack : web")
                     }else if c.Bool("mail") {
-                        println("Removed mail packages")
+                        println("Removed stack : mail")
                     }else if c.Bool("admin") {
-                        println("Removed admin packages")
+                        println("Removed stack : admin")
                     }else if c.Bool("mailscanner") {
-                        println("Removed mailscanner packages")
+                        println("Removed stack : mailscanner")
                     }else if c.Bool("all") {
-                        println("Removed all packages")
-                    }else {
-                        println("Removed web package")
+                        println("Removed stack : all")
                     }
                 },//end of Action
             },
