@@ -112,7 +112,7 @@ var site_commands = cli.Command{
                     },
                 },
                 Action: func(c *cli.Context) {
-                    println(c.Bool("web"))
+  
                     if c.Bool("web") {
                         println("Installed stack : web")
                     }else if c.Bool("mail") {
