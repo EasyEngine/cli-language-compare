@@ -21,7 +21,7 @@
 
 # Test Feature switch (http://click.pocoo.org/3/options/#feature-switches) option for framework
 @test "invoking ee site create example.com --wp --php" {
-  run ee site create example.com --wp
+  run ee site create example.com --wp --php
   [ "$status" -eq 1 ]
   [ "$output" = "site example.com created with wp option" ]
 }
