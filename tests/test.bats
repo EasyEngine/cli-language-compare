@@ -1,22 +1,45 @@
 #!/usr/bin/env bats
 
+# Test Argument befor option testing
 @test "invoking ee site create example.com --wp" {
   run ee site create example.com --wp
   [ "$status" -eq 0 ]
   [ "$output" = "site example.com created with wp option" ]
 }
 
+# Test command without argument, option
+@test "invoking ee site create" {
+  run ee site create 
+  [ "$status" -eq 1 ]
+}
+
+# Test command without argument
+@test "invoking ee site create --wp" {
+  run ee site create --wp
+  [ "$status" -eq 1 ]
+} 
+
+# Test Feature switch (http://click.pocoo.org/3/options/#feature-switches) option for framework
+@test "invoking ee site create example.com --wp --php" {
+  run ee site create example.com --wp
+  [ "$status" -eq 1 ]
+  [ "$output" = "site example.com created with wp option" ]
+}
+
+# Test Option before Argument 
 @test "invoking ee site create --wp example.com" {
   run ee site create --wp example.com
   [ "$status" -eq 0 ]
   [ "$output" = "site example.com created with wp option" ]
 }
 
+# Test subcommand option run before subcommand
 @test "invoking ee site --wp create example.com" {
   run ee site --wp create example.com
   [ "$status" -eq 1 ]
 }
 
+# Test command without option
 @test "invoking ee stack install" {
   run ee stack install
   [ "$status" -eq 1 ]
