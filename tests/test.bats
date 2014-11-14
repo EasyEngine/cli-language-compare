@@ -68,6 +68,11 @@
   [ "$status" -eq 1 ]
 }
 
+@test "invoking ee stack install --mail --test" {
+  run ee stack install --mail --test
+  [ "$status" -eq 1 ]
+}
+
 # Test global options work on subcommands
 @test "invoking ee stack install --help" {
   run ee stack install --help
