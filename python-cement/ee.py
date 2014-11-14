@@ -1,3 +1,5 @@
+#!/usr/bin/env python3.4
+
 from cement.core import foundation, controller, handler
 
 # define application controllers
@@ -44,18 +46,17 @@ class Create(controller.CementBaseController):
 		@controller.expose(help="command under the base namespace")
 		def default(self):
 				if self.app.pargs.html:
-						print "site %s created with html option"%self.app.pargs.site_name
+						print ("site", self.app.pargs.site_name ,"created with html option")
 				if self.app.pargs.php:
-						print "site %s created with php option"%self.app.pargs.site_name
+						print ("site", self.app.pargs.site_name, "created with php option")
 				if self.app.pargs.mysql:
-						print "site %s created with mysql option"%self.app.pargs.site_name
+						print ("site", self.app.pargs.site_name, "created with mysql option")
 				if self.app.pargs.wp:
-						print "site %s created with wp option"%self.app.pargs.site_name
+						print ("site", self.app.pargs.site_name, "created with wp option")
 				if self.app.pargs.wpsubdir:
-						print "site %s created with wpsubdir option"%self.app.pargs.site_name
+						print ("site", self.app.pargs.site_name, "created with wpsubdir option")
 				if self.app.pargs.wpsubdomain:
-						print "site %s created with wpsubdomain option"%self.app.pargs.site_name
-
+						print ("site", self.app.pargs.site_name, "created with wpsubdomain option")
 
 
 class Stack(controller.CementBaseController):
@@ -80,20 +81,27 @@ class Install(controller.CementBaseController):
 				stacked_type = 'nested'
 				description = "install commands	are listed under this controller"
 				arguments = [
-						(['--nginx'], dict(help="perform command on nginx package", action='store_true')),
-						(['--php'], dict(help="perform command on php package", action='store_true')),
-						(['--mysql'], dict(help="perform command on mysql package", action='store_true')),
+						(['--web'], dict(help="Install web stack", action='store_true')),
+						(['--admin'], dict(help="Install admin stack", action='store_true')),
+						(['--mail'], dict(help="Install mail stack", action='store_true')),
+						(['--mailscanner'], dict(help="Install mailscanner stack", action='store_true')),
+						(['--all'], dict(help="Install all stack", action='store_true')),
 						]
 
 		@controller.expose(help="default command for third_controller", hide=True)
 		def default(self):
-				print "Inside ee stack install"
-				if self.app.pargs.nginx:
-								print "Install nginx option selected"
-				if self.app.pargs.php:
-								print "Install php option selected"
-				if self.app.pargs.mysql:
-								print "Install mysql option selected"
+				
+				if self.app.pargs.web:
+								print("Installed stack : web")
+				if self.app.pargs.admin:
+								print( "Installed stack : admin")
+				if self.app.pargs.mail:
+								print( "Installed stack : mail")
+				if self.app.pargs.mailscanner:
+								print( "Installed stack : mailscanner")
+				if self.app.pargs.all:
+								print( "Installed stack : all")
+
 try:
 		# create the application
 		app = foundation.CementApp('ee')
