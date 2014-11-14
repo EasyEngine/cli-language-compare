@@ -2,6 +2,7 @@
 package main
 
 import (
+  "os"
   "github.com/codegangsta/cli"
 )
 func main() {
@@ -53,9 +54,10 @@ var site_commands = cli.Command{
                 },
                 Action: func(c *cli.Context) {
                   args := c.Args()
-                  if args.Present() {
+                  
+                  if args.Present() && len(args) == 1  {
                        if c.Bool("html") {
-                        println("site", c.Args().First(), "created with html option" )
+                            println("site", c.Args().First(), "created with html option" )
                         }
                         if c.Bool("php") {
                             println("site", c.Args().First(), "created with php option")
@@ -73,7 +75,8 @@ var site_commands = cli.Command{
                             println("site", c.Args().First(), "created with wpsubdomain option")
                         }       
                     } else {
-                        println("Please provide site name")
+                        println("Plz check your arguments")
+                        os.Exit(1)
                     }
                 },
             },
