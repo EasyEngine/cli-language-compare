@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-# Test Argument befor option testing
+# Test Argument before option testing
 @test "invoking ee site create example.com --wp" {
   run ee site create example.com --wp
   [ "$status" -eq 0 ]
@@ -39,10 +39,10 @@
   [ "$status" -eq 1 ]
 }
 
-# Test command without option
+# Test command without option where no argument required
 @test "invoking ee stack install" {
   run ee stack install
-  [ "$status" -eq 1 ]
+  [ "$status" -eq 0 ]
 }
 
 @test "invoking ee stack install --web" {
@@ -65,5 +65,11 @@
 
 @test "invoking ee stack --web install" {
   run ee stack --web install
+  [ "$status" -eq 1 ]
+}
+
+# Test global options work on subcommands
+@test "invoking ee stack install --help" {
+  run ee stack install --help
   [ "$status" -eq 1 ]
 }
