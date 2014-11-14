@@ -31,7 +31,7 @@ def create():
 @click.option('--wpsubdomain', 'transformation', flag_value='wpsubdomain')
 
 def create(site_name,transformation):
-	click.echo('create site %s %s'%(site_name, transformation))
+	click.echo('site %s created with %s option'%(site_name, transformation))
 
 
 @site.group()
