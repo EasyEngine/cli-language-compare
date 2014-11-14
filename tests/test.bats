@@ -10,19 +10,19 @@
 # Test command without argument, option
 @test "invoking ee site create" {
   run ee site create 
-  [ "$status" -eq 1 ]
+  [ "$status" -ne 0 ]
 }
 
 # Test command without argument
 @test "invoking ee site create --wp" {
   run ee site create --wp
-  [ "$status" -eq 1 ]
+  [ "$status" -ne 0 ]
 } 
 
 # Test Feature switch (http://click.pocoo.org/3/options/#feature-switches) option for framework
 @test "invoking ee site create example.com --wp --php" {
   run ee site create example.com --wp --php
-  [ "$status" -eq 1 ]
+  [ "$status" -neq 0 ]
   [ "$output" = "site example.com created with wp option" ]
 }
 
@@ -36,7 +36,7 @@
 # Test subcommand option run before subcommand
 @test "invoking ee site --wp create example.com" {
   run ee site --wp create example.com
-  [ "$status" -eq 1 ]
+  [ "$status" -ne 0 ]
 }
 
 # Test command without option where no argument required
@@ -65,17 +65,17 @@
 
 @test "invoking ee stack --web install" {
   run ee stack --web install
-  [ "$status" -eq 1 ]
+  [ "$status" -ne 0 ]
 }
 
 # Test invalid option
 @test "invoking ee stack install --mail --test" {
   run ee stack install --mail --test
-  [ "$status" -eq 1 ]
+  [ "$status" -ne 0 ]
 }
 
 # Test global options work on subcommands
 @test "invoking ee stack install --help" {
   run ee stack install --help
-  [ "$status" -eq 1 ]
+  [ "$status" -eq 0 ]
 }
