@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-# Test Argument before option testing
+# Test Argument before option
 @test "invoking ee site create example.com --wp" {
   run ee site create example.com --wp
   [ "$status" -eq 0 ]
@@ -68,6 +68,7 @@
   [ "$status" -eq 1 ]
 }
 
+# Test invalid option
 @test "invoking ee stack install --mail --test" {
   run ee stack install --mail --test
   [ "$status" -eq 1 ]
