@@ -2,7 +2,7 @@ cli
 ===
 
 ### Update 💡
-The experiment was over. We choose PHP for our CLI project. There is no such thing as a best programming language. The choice be better based on pratical consideration. In our case, deciding factor was comfort level of oue team and our users. 🔚
+The experiment was over. We choose PHP for our CLI project. There is no such thing as a best programming language. The choice be better based on pratical consideration. In our case, deciding factor was comfort level of our team and our users. 🔚
 
 ----
 
