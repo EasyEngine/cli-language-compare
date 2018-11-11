@@ -50,7 +50,7 @@ ee stack install web
 ## Options
 
 ````
-ww site create --wp example.com
+ee site create --wp example.com
 ee site create example.com --wpsubdom --w3tc
 ee site create example.com --wpsubdom --wpsc
 ````
